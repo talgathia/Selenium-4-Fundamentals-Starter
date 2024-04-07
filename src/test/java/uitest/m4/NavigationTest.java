@@ -1,9 +1,12 @@
 package uitest.m4;
 
 import helper.DemoHelper;
+import helper.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+
+import static helper.Pages.*;
 
 public class NavigationTest {
 
@@ -31,5 +34,19 @@ public class NavigationTest {
         driver.navigate().refresh();
 
         driver.quit();
+
+        // difference between driver.quit() and driver.close():
+        // driver.quit closes all tabs and windows
+        // driver.close closes current tab only (if only one, closes window)
+    }
+
+    @Test
+    public void basicNavigationTestRefactored() {
+        WebDriver driver = DriverFactory.newDriver();
+        driver.get(HOME);
+        driver.get(SAVINGS);
+
+        driver.quit();
+
     }
 }
