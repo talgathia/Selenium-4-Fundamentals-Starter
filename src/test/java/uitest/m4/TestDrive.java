@@ -9,7 +9,6 @@ public class TestDrive {
 
     @Test
     public void test() {
-        System.setProperty("webdriver.chrome.driver","path/to/driver");
         WebDriver driver = new ChromeDriver();
         driver.quit();
     }
