@@ -27,7 +27,7 @@ public class FindMultipleElementsTest {
         driver.findElement(By.id("register")).click();
         print(feedback.get(0).getText());
         print(feedback.get(1).getText());
-        
+
         driver.quit();
     }
 
