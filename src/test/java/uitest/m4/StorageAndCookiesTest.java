@@ -2,7 +2,9 @@ package uitest.m4;
 
 import helper.DemoHelper;
 import helper.DriverFactory;
+import java.util.Set;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.html5.SessionStorage;
@@ -10,6 +12,7 @@ import org.openqa.selenium.html5.WebStorage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static helper.Pages.*;
+
 
 public class StorageAndCookiesTest {
 
@@ -53,6 +56,18 @@ public class StorageAndCookiesTest {
         WebElement lastName_2 = driver.findElement(By.id("lastName"));
         Assert.assertEquals(firstName_2.getAttribute("value"), "");
         Assert.assertEquals(lastName_2.getAttribute("value"), "");
+
+        driver.quit();
+    }
+
+    @Test
+    public void cookiesTest() {
+        WebDriver driver = DriverFactory.newDriver();
+        WebDriver.Options options = driver.manage();
+
+        Set<Cookie> cookies = options.getCookies();
+        Cookie thing = options.getCookieNamed("thing");
+        options.deleteAllCookies();
 
         driver.quit();
     }
