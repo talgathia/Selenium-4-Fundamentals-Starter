@@ -1,12 +1,13 @@
 package uitest.m4;
 
 import helper.DriverFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import javax.imageio.plugins.tiff.ExifParentTIFFTagSet;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,5 +34,23 @@ public class ScreenshotTest {
 
 
         driver.quit();
+    }
+
+
+    @Test
+    public void elementScreenshot() throws IOException {
+        WebDriver driver = DriverFactory.newDriver();
+        driver.get(HOME);
+
+        // to make a screenshot of a specific element:
+        WebElement form = driver.findElement(By.tagName("form"));
+        File screenshot = form.getScreenshotAs(OutputType.FILE);
+
+
+        Path destination = Paths.get("failure-element.png");
+        Files.move(screenshot.toPath(), destination, REPLACE_EXISTING);
+
+        driver.quit();
+
     }
 }
