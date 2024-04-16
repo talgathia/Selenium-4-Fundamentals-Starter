@@ -1,4 +1,4 @@
-package uitest.m4;
+package uitest.m6;
 
 import helper.DriverFactory;
 import org.openqa.selenium.By;
