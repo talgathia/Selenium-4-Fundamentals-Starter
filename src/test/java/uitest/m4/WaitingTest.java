@@ -1,12 +1,12 @@
 package uitest.m4;
 
+import helper.DriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -46,6 +46,26 @@ public class WaitingTest {
 
         WebElement result = waitUntilClickable(driver, By.id("result"));
         Assert.assertTrue(result.isDisplayed());
+
+        driver.quit();
+    }
+
+
+    @Test
+    public void fluentWaitTest() {
+        driver = DriverFactory.newDriver();
+        driver.get(LOANS);
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(6))
+                .pollingEvery(Duration.ofMillis(200))
+                .ignoring(NoSuchElementException.class);
+        // Method chaining - makes code more fluent to read - hence the name 'fluent wait'.
+
+        driver.findElement(By.id("borrow")).sendKeys("500");
+
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("result")));
+        element.click();
+
 
         driver.quit();
     }
