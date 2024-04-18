@@ -4,12 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v85.network.model.Request;
+import org.openqa.selenium.devtools.v85.network.model.Response;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.openqa.selenium.devtools.v85.network.Network;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static helper.Pages.*;
@@ -46,6 +50,27 @@ public class InterceptRequestDemo {
 
         driver.get("http://127.0.0.1:8000/index.html");
 
+    }
+
+    @Test
+    public void captureResponseTraffic() {
+        driver = new ChromeDriver();
+        devTools = ((ChromeDriver) driver).getDevTools();
+        devTools.createSession();;
+
+        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+
+        List<Integer> statuses = new ArrayList<>(); // prevents exceptions from being swallowed up
+        devTools.addListener(Network.responseReceived(),
+                responseReceived -> {
+                    Response r = responseReceived.getResponse();
+                    System.out.printf("Response status: %s \n", r.getStatus());
+                    // Assert.assertTrue(r.getStatus() <= 400);
+                    statuses.add(r.getStatus());
+                });
+
+        driver.get("http://127.0.0.1:8000/index.html");
+        statuses.forEach(status -> Assert.assertFalse(status <= 400)); // should fail
     }
 
 
