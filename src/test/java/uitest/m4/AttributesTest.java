@@ -1,11 +1,10 @@
 package uitest.m4;
 
 import helper.DemoHelper;
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import static helper.Pages.*;
@@ -14,7 +13,7 @@ public class AttributesTest {
 
     @Test
     public void isEnabledTest() {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(HOME);
 
         WebElement textarea = driver.findElement(By.id("textarea"));
@@ -30,7 +29,7 @@ public class AttributesTest {
 
     @Test
     public void isDisplayedTest() {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(HOME);
 
         WebElement feedback = driver.findElement(By.className("invalid-feedback"));

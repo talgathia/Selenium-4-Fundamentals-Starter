@@ -1,7 +1,7 @@
 package uitest.m4;
 
 import helper.DemoHelper;
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -42,7 +42,7 @@ public class NavigationTest {
 
     @Test
     public void basicNavigationTestRefactored() {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(HOME);
         driver.get(SAVINGS);
 

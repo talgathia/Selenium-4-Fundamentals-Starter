@@ -1,13 +1,12 @@
 package uitest.m6;
 
 import helper.DemoHelper;
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,7 +17,7 @@ public class UploadFileTest {
 
     @Test
     void uploadFile() throws IOException {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(LOANS);
 
         WebElement fileInput = driver.findElement(By.cssSelector("input[type=file]"));

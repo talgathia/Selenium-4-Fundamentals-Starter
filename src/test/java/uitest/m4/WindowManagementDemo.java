@@ -1,14 +1,10 @@
 package uitest.m4;
 
 import helper.DemoHelper;
-import helper.DriverFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 import static helper.Pages.*;
 

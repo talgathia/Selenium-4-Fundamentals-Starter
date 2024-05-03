@@ -1,6 +1,6 @@
 package uitest.m4;
 
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ public class UnderstandingWebElement {
 
     @Test
     public void webElementTest() {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(HOME);
 
         WebElement input = driver.findElement(By.id("firstName"));

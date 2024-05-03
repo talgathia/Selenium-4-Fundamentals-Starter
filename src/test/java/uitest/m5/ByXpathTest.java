@@ -1,6 +1,6 @@
 package uitest.m5;
 
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +15,7 @@ public class ByXpathTest {
     @Test
     public void byXpath() {
 
-        driver = DriverFactory.newDriver();
+        driver = DriverFactory2.newDriver();
         driver.get(SAVINGS);
 
         WebElement cell = driver.findElement(By.xpath("//*[@id=\"rates\"]/tbody/tr[1]/td[4]"));
@@ -25,7 +25,7 @@ public class ByXpathTest {
 
     @Test
     public void byXpath_2() {
-        driver = DriverFactory.newDriver();
+        driver = DriverFactory2.newDriver();
         driver.get(HOME);
         WebElement button = driver.findElement(By.xpath("//form/button[contains(text(), 'Register')]"));
         System.out.println(button.getText());

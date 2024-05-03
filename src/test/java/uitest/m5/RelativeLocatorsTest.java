@@ -1,6 +1,6 @@
 package uitest.m5;
 
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +15,7 @@ public class RelativeLocatorsTest {
 
     @Test
     public void relativeLocator() {
-        driver = DriverFactory.newDriver();
+        driver = DriverFactory2.newDriver();
         driver.get(HOME);
 
         WebElement email = driver.findElement(By.id("email"));

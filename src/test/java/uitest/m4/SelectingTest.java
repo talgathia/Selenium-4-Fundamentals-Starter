@@ -1,7 +1,7 @@
 package uitest.m4;
 
 import helper.DemoHelper;
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ public class SelectingTest {
 
     @Test
     public void selectingTest() {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(SAVINGS);
 
         WebElement input = driver.findElement(By.id("deposit"));

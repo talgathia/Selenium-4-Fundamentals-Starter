@@ -1,6 +1,6 @@
 package uitest.m4;
 
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -14,7 +14,7 @@ public class GetTableDataDemo {
 
     @Test
     public void getTableData() {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(SAVINGS);
 
         WebElement table = driver.findElement(By.id("rates"));

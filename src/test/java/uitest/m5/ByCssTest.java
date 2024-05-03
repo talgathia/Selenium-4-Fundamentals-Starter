@@ -1,8 +1,7 @@
 package uitest.m5;
 
 import helper.DemoHelper;
-import helper.DriverFactory;
-import org.checkerframework.checker.units.qual.A;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +16,7 @@ public class ByCssTest {
 
     @Test
     public void byCssSelector() {
-        driver = DriverFactory.newDriver();
+        driver = DriverFactory2.newDriver();
         driver.get(HOME);
         WebElement datePicker = driver.findElement(By.cssSelector("input[type=date]"));
         datePicker.sendKeys("01/01/2000");
@@ -30,7 +29,7 @@ public class ByCssTest {
 
     @Test
     public void byCssSelector_2() {
-        driver = DriverFactory.newDriver();
+        driver = DriverFactory2.newDriver();
         driver.get(HOME);
         WebElement checkbox = driver.findElement(By.cssSelector("[type=checkbox]:not(:checked)"));
         checkbox.click();

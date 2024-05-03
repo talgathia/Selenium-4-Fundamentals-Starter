@@ -1,6 +1,6 @@
 package uitest.m6;
 
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -21,7 +21,7 @@ public class ScreenshotTest {
 
     @Test
     public void fullPageScreenshot() throws IOException {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(HOME);
 
         TakesScreenshot ts = (TakesScreenshot) driver;
@@ -39,7 +39,7 @@ public class ScreenshotTest {
 
     @Test
     public void elementScreenshot() throws IOException {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(HOME);
 
         // to make a screenshot of a specific element:

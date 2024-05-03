@@ -1,7 +1,7 @@
 package uitest.m5;
 
 import helper.DemoHelper;
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ public class ByLinkTest {
 
     @Test
     public void byLinkText() {
-        WebDriver driver = DriverFactory.newDriver();
+        WebDriver driver = DriverFactory2.newDriver();
         driver.get(HOME);
 
         driver.findElement(By.linkText("Savings")).click();

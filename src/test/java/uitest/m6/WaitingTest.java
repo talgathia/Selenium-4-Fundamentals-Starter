@@ -1,6 +1,6 @@
 package uitest.m6;
 
-import helper.DriverFactory;
+import helper.DriverFactory2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -53,7 +53,7 @@ public class WaitingTest {
 
     @Test
     public void fluentWaitTest() {
-        driver = DriverFactory.newDriver();
+        driver = DriverFactory2.newDriver();
         driver.get(LOANS);
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(6))
